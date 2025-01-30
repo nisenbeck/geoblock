@@ -15,6 +15,7 @@ add:
 update:
 	make cleanup
 	make add
+	sudo systemctl restart geoblock-persistent.service
 
 service-deploy:
 	cp geoblock.sh /usr/local/bin/
