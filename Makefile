@@ -11,7 +11,10 @@ add:
 	while read line; do ipset add geoblock $$line; done < geoblock.txt
 	touch /etc/ipset.conf
 	ipset save > /etc/ipset.conf
-	make service-deploy
+
+update:
+	make cleanup
+	make add
 
 service-deploy:
 	cp geoblock.sh /usr/local/bin/
@@ -28,6 +31,10 @@ status:
 	sudo systemctl status ipset-persistent.service
 	sudo systemctl status geoblock-persistent.service
 
+install:
+	make add
+	make service-deploy
+
 uninstall:
 	make cleanup
 	systemctl stop ipset-persistent.service
@@ -40,4 +47,4 @@ uninstall:
 	rm /etc/ipset.conf
 	rm /usr/local/bin/geoblock.sh
 
-.PHONY: cleanup add service-deploy status uninstall
+.PHONY: cleanup add update service-deploy status install uninstall

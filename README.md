@@ -13,9 +13,9 @@ Install `iprange` and `ipset` with:
 
 ## Installation
 
-`make add` will copy everything where it supposed to be and start services: 
+`make install` will copy everything where it supposed to be and start services: 
 
-	sudo make add 
+	sudo make install
 
 To check services status:
 
