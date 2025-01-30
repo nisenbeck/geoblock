@@ -7,9 +7,9 @@ It is basically a convenient way to block countries by IP with iptables. Step-by
 Geoip lists downloaded from [countryipblocks.net](https://www.countryipblocks.net/acl.php), select countries and CIDR format. 
 Save lists into files in `lists/` folder. A couple of useful lists are provided as an example. Multiple lists will be automatically combined and optimized. Remember to update lists from time to time.
 
-Install `iprange` and `ipset` with:
+Install `iprange`, `ipset` and `make` with:
 
-	sudo apt install -y iprange ipset
+	sudo apt install -y iprange ipset make
 
 ## Installation
 
